@@ -149,7 +149,6 @@ export default function Education() {
  
   return(
     <div>
-      <div style={{backgroundColor:"red",height:"4em"}}></div>
       <div className="container">
         <div className="head">
         
