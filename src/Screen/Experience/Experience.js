@@ -5,11 +5,12 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useFormik } from 'formik';
 import {Button} from 'react-bootstrap';
-import "../../vikramcss.css"
+// import "../../vikramcss.css"
 
 
 
-export default function Experience () {
+
+export default function App () {
 
 
  const options=[
@@ -164,7 +165,8 @@ const Remove=()=>{
 // console.log("number",empty)
 
 	    return (
-	      <div className="container">
+	      <div className="Experience container">
+          
         <div className="top">
 
 
@@ -241,8 +243,8 @@ const Remove=()=>{
      
      
 
-    <div  className="middle">
-   
+    // <div  className="middle" style={{backgroundColor:"red"}}>
+   <>
      <div className="row">
      <div className="col-md-4">
      <label>Employer</label><br/>
@@ -301,7 +303,8 @@ const Remove=()=>{
             </div>
              </div>
 
-         </div> 
+         {/* </div>  */}
+         </>
    );
  })}
 

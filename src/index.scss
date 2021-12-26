@@ -1,0 +1,128 @@
+.Experience{
+    display: flex;
+    .body {
+      font-family: sans-serif;
+         }
+  
+   
+   
+    .top{
+        margin: 0 0 0 70px;
+
+        h5 {
+            margin:100px 0 0 0;
+            font-weight: bold;
+    
+        }
+           
+        p{
+          font-size: 13px ;
+          
+        }
+
+        .middle{
+           
+            margin: 40px 0 0 0;
+    
+         form{
+            label{
+                font-size: 13px;
+                color: #303030;
+                line-height: 3;
+            }
+          
+           
+            
+            .input{
+                width: 25em;
+                height: 2.3em;
+                border-radius: 5px;
+                border-width: 1px;   
+            }
+            ::placeholder{
+                color: darkgray;
+                font-size: 13px;
+                padding: 0 0 0 10px;
+            }
+            
+
+            .Checkbox{
+                margin-top: 14px;
+                margin-right: 10px;
+                }
+            .text-editor{
+                margin-top: 20px;
+            }
+            .career-field{    
+                height: 27.72rem;
+                border-style: ridge;
+            }
+            .career-field p{
+                background-color: darkgrey;
+                height: 40px;
+                text-align: center;
+                padding-top: 8px;   
+            }
+            
+            .Button{
+                margin-top: 50px;
+                display:flex;
+                justify-content:space-between;
+            
+            }
+
+            .Addmore{
+                text-align: center;
+                font-size: 13px;
+                height: 3em;
+                width: 9em;
+                margin-top: 13px;
+                color: #2FBE6E;
+                border-color: #2FBE6E;
+                background-color: white;
+            }
+            
+            .REMOVE{
+                text-align: center;
+                font-size: 13px;
+                height: 3em;
+                width: 9em;
+                margin-top: 13px;
+                color: red;
+                border-color: red;
+                background-color: white;
+            }
+            
+            .Back{
+                background-color: darkgrey;
+                height: 3em;
+                width: 7em;
+                border-color: #F9F9F9;
+            }
+            
+            .Submit{
+                background-color: #F07201;
+                height: 3em;
+                width: 7em;
+                border-color: #F07201;
+               
+            }
+            
+            
+          
+            .select-year{
+          margin-top: 38px;
+          
+            }
+
+            .quill{
+                height: 25rem;
+            }
+           
+        }
+          }
+    
+    }
+
+  
+  }

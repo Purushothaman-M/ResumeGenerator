@@ -16,6 +16,7 @@
     "react-scripts": "4.0.3",
     "react-select": "^5.2.1",
     "react-select-country-list": "^2.2.3",
+    "sass": "^1.17.4",
     "styled-components": "^5.3.3",
     "use-formik": "^0.0.1",
     "web-vitals": "^1.1.2"
