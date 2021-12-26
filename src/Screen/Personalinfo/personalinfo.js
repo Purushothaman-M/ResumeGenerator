@@ -3,6 +3,8 @@ import {useFormik} from "formik"
 import { Button } from 'react-bootstrap'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
+import "../../pumacss.css"
+
 
 
 export default function PersonalInfo(props) {

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Select from "react-select";
 import { useFormik } from "formik";
 import { Button } from "react-bootstrap";
-import "../../gowthamcss.css"
+// import "../../gowthamcss.css"
 
 export default function Education() {
   const [data, setdata]=useState()

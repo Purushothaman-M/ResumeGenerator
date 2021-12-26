@@ -1,88 +1,22 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.formview {
+  margin: 1.5em 0 0 0;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input{
+  height:2.4rem;
+  width: 23em;
+  border-color: rgb(193, 200, 207) ;
+  border-width: 0.1em;
+  border-radius: 0.3em;
 }
-
-*{
-  margin: 0px;
-  padding: 0px;
+.select {
+  margin: 0 0 0 2em;
 }
-.contain{
-  display:flex;
-  height: 100vh;
-  justify-content: center;
+.year {
+  margin: 1.5em 0 0 0;
 }
-
-h5{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.check {
+  margin: 3em 0 0 24em;
 }
-p{
-  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+.check label {
+  margin: 0 0 0 0.8em;
 }
-
-.subcontain{
-  margin: 40px 0px 0px 0px;
-  /* background: #00ffff; */
-  display:flex;
-  height: 80vh;
-  flex-direction:column;
-}
-
-.middle{
-  flex-Direction:"row";
-  display: flex;
-}
-
-.city{
-  flex-Direction:"row";
-  display: flex;
-  margin-top: 20px;
-}
-
-.i1{
-  width: 35vw;
-  height: 40px;
-  margin: 0px 50px 0px 0px;
-  border-radius: 5px;
-  border: 1px solid #00ffff ;
-  outline-color: #719ECE;
-  padding-left: 5px;
-  letter-spacing: 1px;
-}
-
-.i2{
-  width: 73.8vw;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #00ffff ;
-  outline-color: #719ECE;
-  padding-left: 5px;
-}
-
-.i3{
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #00ffff ;
-  outline-color: #719ECE;
-  padding-left: 5px;
-}
-
-.countryi4{
-  width: 17vw;
-  height: 40px;
-  border-radius: 5px;
-  border: 1px solid #00ffff ;
-  outline-color: #719ECE;
-  padding-left: 5px;
-}
-
-
