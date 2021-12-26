@@ -76,7 +76,7 @@ export default function PersonalInfo(props) {
     <div className='contain'>
       <form onSubmit={formik.handleSubmit}>
       <div className='container'>
-<h2>PERSONAL INFO</h2>
+<h5>PERSONAL INFO</h5>
 <span>Employer Will Use This Information To Contact You</span>
 <div className='subcontain'>
 

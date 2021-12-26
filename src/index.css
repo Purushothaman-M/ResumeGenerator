@@ -18,12 +18,11 @@ code {
 }
 .contain{
   display:flex;
-  /* flex-direction: row; */
   height: 100vh;
   justify-content: center;
 }
 
-h2{
+h5{
   font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 p{
