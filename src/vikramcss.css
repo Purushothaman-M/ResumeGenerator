@@ -1,0 +1,111 @@
+body {
+    font-family: sans-serif;}
+
+  .quill{
+      height: 25rem;
+  }
+ 
+  .top{
+      margin: 0 0 0 70px;
+  }
+  
+  label{
+      font-size: 13px;
+      color: #303030;
+      line-height: 3;
+  }
+
+  h5 {
+      margin:100px 0 0 0;
+      font-weight: bold;
+  }
+     
+  p{
+    font-size: 13px ;
+   
+  }
+  
+  .input{
+      width: 25em;
+      height: 2.3em;
+      border-radius: 5px;
+      border-width: 1px;   
+  }
+
+  .middle{
+   
+ margin: 40px 0 0 0;
+  }
+
+  ::placeholder{
+      color: darkgray;
+      font-size: 13px;
+      padding: 0 0 0 10px;
+  }
+
+.select-year{
+margin-top: 38px;
+
+  }
+
+.Checkbox{
+    margin-top: 14px;
+    margin-right: 10px;
+    }
+.text-editor{
+    margin-top: 20px;
+}
+.career-field{    
+    height: 27.72rem;
+    border-style: ridge;
+}
+.career-field p{
+    background-color: darkgrey;
+    height: 40px;
+    text-align: center;
+    padding-top: 8px;   
+}
+
+.Button{
+    margin-top: 50px;
+    display:flex;
+    justify-content:space-between;
+
+}
+
+.Back{
+    background-color: darkgrey;
+    height: 3em;
+    width: 7em;
+    border-color: #F9F9F9;
+}
+
+.Submit{
+    background-color: #F07201;
+    height: 3em;
+    width: 7em;
+    border-color: #F07201;
+   
+}
+
+.Addmore{
+    text-align: center;
+    font-size: 13px;
+    height: 3em;
+    width: 9em;
+    margin-top: 13px;
+    color: #2FBE6E;
+    border-color: #2FBE6E;
+    background-color: white;
+}
+
+.REMOVE{
+    text-align: center;
+    font-size: 13px;
+    height: 3em;
+    width: 9em;
+    margin-top: 13px;
+    color: red;
+    border-color: red;
+    background-color: white;
+}
