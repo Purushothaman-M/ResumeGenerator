@@ -5,11 +5,11 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useFormik } from 'formik';
 import {Button} from 'react-bootstrap';
-import "./vikramcss.css"
+import "../../vikramcss.css"
 
 
 
-export default function App () {
+export default function Experience () {
 
 
  const options=[
