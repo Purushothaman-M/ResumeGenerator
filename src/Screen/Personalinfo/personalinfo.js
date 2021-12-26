@@ -5,8 +5,7 @@ import Select from 'react-select'
 import countryList from 'react-select-country-list'
 
 
-
-export default function App(props) {
+export default function PersonalInfo(props) {
 
   const [data,setData]=useState()
   const options = useMemo(() => countryList().getData(), [])

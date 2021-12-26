@@ -1,8 +1,8 @@
 import { useFormik } from 'formik'
 import React, { useState } from 'react'
-import Editor from './Components/Quill'
+import Editor from '../../Components/Quill'
 
-export default function App(props) {
+export default function Objective(props) {
 
   const onSubmit=(values)=>{
     console.log("onsubmit",values)
