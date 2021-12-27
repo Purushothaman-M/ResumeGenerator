@@ -183,11 +183,8 @@ const Remove=()=>{
 
 
 
-  // console.log((new Date()).getFullYear(),"hello ")
-//   console.log("editor",editor);
+ 
 console.log("formik.values",formik.values) 
-//   console.log("experience",experience)
-// console.log("number",employer)
 
 	    return (
 	      <div className="Experience container">
@@ -213,7 +210,6 @@ console.log("formik.values",formik.values)
      
      
 
-    // <div  className="middle" style={{backgroundColor:"red"}}>
    <>
      <div className="row">
      <div className="col-md-4">

@@ -9,6 +9,15 @@ export  default function Skills(props) {
 const[empty,setempty]=useState()
 
     
+const options=[
+    {label:"☆☆-Novice",value:"novice"},
+    {label:"☆☆☆-Intermediate",value:"intermediate"},
+    {label:"☆☆☆☆-Proficient ",value:"proficient "},
+    {label:"☆☆☆☆☆-Expert ",value:"expert "},
+]
+
+
+
     const onSubmit=(values)=>{
   
         }
@@ -63,15 +72,19 @@ console.log("formik.values.data",formik.values.data)
            { formik.values.data.map((item,i)=>{
   return (
  <>
-   <div className="contain">
-   <div className="container">
-   <label>Employer</label><br/>
-   <input className="input" placeholder="e.g.IBM"></input>
-   </div>
 
+
+{/* <input className="input" placeholder="e.g.IBM" name={`resume[${i}.employer]`}
+      value={formik.values.resume[i].employer} onChange={formik.handleChange}></input> */}
+
+   <div className="city">
+   <div className="container">
+   <label>Skill</label><br/>
+   <input  className='i1' placeholder="e.g.project manager"  name={`data[${i}.skill]`}  onChange={formik.handleChange} value={formik.values.data[i].skill}></input>
+   </div>
    <div className="col-md-6">
-       <label>Start date</label><br/>
-      <Select  placeholder="Month" ></Select>
+       <label>Level</label><br/>
+      <Select options={options} className='countryi4' placeholder="Select Your Level"  onChange={(value)=>formik.setFieldValue(`data[${i}].level`,value.value)} ></Select>
        </div>
      </div>
        </>
@@ -89,7 +102,13 @@ console.log("formik.values.data",formik.values.data)
           </div> </div>
          </form>
          </div>
+         <div  style={{marginTop:50,justifyContent:"space-between",display:"flex"}}>
+   <Button variant="primary" type="button">Back</Button>
+         <Button variant="primary" type="submit"> submit</Button>
+        </div>
           </div>
+
+         
       </div>
       );
         } 
