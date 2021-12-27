@@ -63,13 +63,13 @@ console.log("formik.values.data",formik.values.data)
            { formik.values.data.map((item,i)=>{
   return (
  <>
-   <div className="row">
-   <div className="col-md-4">
+   <div className="contain">
+   <div className="container">
    <label>Employer</label><br/>
    <input className="input" placeholder="e.g.IBM"></input>
    </div>
 
-   <div className="col-md-2">
+   <div className="col-md-6">
        <label>Start date</label><br/>
       <Select  placeholder="Month" ></Select>
        </div>
