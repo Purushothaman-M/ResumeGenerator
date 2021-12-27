@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 // import "../../gowthamcss.css"
 
 export default function Education() {
-  const [data, setdata]=useState()
+  
   const [select, setselect]=useState(false)
 
   const formik = useFormik ({
@@ -15,9 +15,11 @@ export default function Education() {
       state:"",
       sslc:"",
       hsc:"",
+      graduation:[{
       selectdegree:"",
       graduationmonth:"",
-      graduationyear:""
+      graduationyear:""}]
+      
     },
     onSubmit: (values) =>{
       alert(JSON.stringify(values));
@@ -146,6 +148,32 @@ export default function Education() {
     { value:"1962",label:"1962" },
     { value:"1961",label:"1961" },
   ]
+  const [data, setdata]=useState()
+
+  const onAddDegree=()=>{
+     let length=formik.values.graduation.length
+     let index=length-1
+    let adding ={
+      selectdegree:"",
+      graduationmonth:"",
+      graduationyear:""
+    }
+    for(let i=index;i<length;i++)
+    {
+      formik.values.graduation.push(adding)
+      
+    }
+    setdata(length)
+
+  }
+
+  const onRemoveDegree=()=>{
+    if(formik.values.graduation.length>1)
+    {
+    formik.values.graduation.pop()
+    }
+    setdata("hello")
+  }
 
  
   return(
@@ -199,7 +227,7 @@ export default function Education() {
           </div>
           </div>
 
-          <div className="formview">
+          {/* <div className="formview">
           <div className="row">
 
           <div className="col-md-4">
@@ -222,14 +250,59 @@ export default function Education() {
           </div>
 
             </div>
+            </div> */}
+
+            { 
+              formik.values.graduation.map((item,i)=>{
+    
+                return(
+                  <div className="formview">
+          <div className="row">
+
+          <div className="col-md-4">
+            <label>Select a degree</label><br/>
+            <input className="input" type="text" name={`graduation[${i}.selectdegree]`} placeholder="e.g. BE/Electrical and Electronic Engineering" value={formik.values.graduation[i].selectdegree} onChange={formik.handleChange}/>
+          </div>
+
+          <div className="col-md-2">
+            <label >Graduation date</label>
+            <Select placeholder="Month" isDisabled={select} options={options1}></Select>
+          </div>
+
+          <div className="col-md-2">
+            
+            <Select className="year" placeholder="year" isDisabled={select} options={options2} ></Select>
+          </div>
+          <div className="check">
+            <input type="checkbox" checked={select} onChange={()=>{setselect(!select)}}/>
+            <label>I Presently attend here</label>
+          </div>
+
+            </div>
+            </div>
+                )
+                
+              })
+            
+            }
+             
+             <div className="addbutton">
+            <div className="row">
+              <div className="col-md-2 offset-1">
+                <Button className="add" onClick={onAddDegree}>Add more</Button>
+              </div>
+              <div className="col-md-2 offset-1">
+                <Button className="remove" onClick={onRemoveDegree}>Remove</Button>
+              </div>
+            </div>
             </div>
 
             <div className="row justify-content-between">
               <div className="col-md-4 ">
-                <Button>BACK</Button>
+                <Button className="back">BACK</Button>
                 </div>
                 <div className="col-md-4">
-                <Button type="submit">SAVE</Button>
+                <Button className="save" type="submit">SAVE</Button>
               </div>
             </div>
 
