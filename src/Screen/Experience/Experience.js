@@ -5,6 +5,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useFormik } from 'formik';
 import {Button} from 'react-bootstrap';
+import { useHistory } from 'react-router';
 // import "../../vikramcss.css"
 
 
@@ -12,7 +13,7 @@ import {Button} from 'react-bootstrap';
 
 export default function App () {
 
-
+let history=useHistory()
  const options=[
     {label:"January",value:"January"},
     {label:"February",value:"February"},
@@ -97,12 +98,13 @@ const [selected,setSelected]=React.useState(false)
 const onSubmit=(values)=>{
   
   setexperience(values)
+
+  history.push("/education")
   }
 
 const formik=useFormik({
   initialValues:{
     resume:[{
-    data:"",
     employer:"",
     jobtitle:"",
     city:"",
@@ -110,7 +112,9 @@ const formik=useFormik({
     startmonth:"",
     startyear:"",
     endmonth:"",
-    endyear:""}]},
+    endyear:""}],
+    data:""},
+
     onSubmit
 })
 
@@ -142,7 +146,6 @@ const Resume=()=>{
   let index= length-1;
   
   let additionaldata={
-    data:"",
     employer:"",
     jobtitle:"",
     city:"",
@@ -158,14 +161,13 @@ const Resume=()=>{
    
 
   }
- setempty(index)
+ setempty("hello")
 
 }
 
 const Remove=()=>{
-  let remove=[...empty]
-  remove.pop()
-  setempty(remove)
+  formik.values.resume.pop()
+  setempty("hello")
 }
   
 
@@ -194,62 +196,7 @@ console.log("formik.values",formik.values)
 
        <div  className="middle">
        <form onSubmit={formik.handleSubmit}>
-        {/* <div className="row">
-        <div className="col-md-4">
-        <label>Employer</label><br/>
-        <input className="input" placeholder="e.g.IBM" onChange={formik.handleChange} name="employer" value={formik.values.employer}></input>
-        </div>
-
-        <div className="col-md-4">
-        <label>Job title</label><br/>
-        <input className="input" placeholder="e.g.Engineer" onChange={formik.handleChange} name="jobtitle" value={formik.values.jobtitle}></input>
-        </div>
-          </div>
-
-
-          <div className="row ">
-          
-          <div className="col-md-4">
-          <label>City</label><br/>
-          <input className="input" placeholder="e.g.Chennai" onChange={formik.handleChange} name="city" value={formik.values.city}></input>
-          </div>
-  
-          <div className="col-md-4">
-          <label>State</label><br/>
-          <input className="input" placeholder="e.g.Tamil Nadu" onChange={formik.handleChange} name="state" value={formik.values.state}></input>
-          </div>
-            </div>
-
-
-            <div className="row">
-          
-          <div className="col-md-2">
-          <label>Start date</label><br/>
-         <Select options={options} placeholder="Month" onChange={(value)=>{formik.setFieldValue("startmonth",value.value)}} value={defaultvalue(formik.values.startmonth)}></Select>
-          </div>
-
-          <div className="col-md-2">
-         <Select className="select-year" options={options1} placeholder="Year" onChange={(value)=>{formik.setFieldValue("startyear",value.value)}}  value={defaultvalue(formik.values.startyear)}></Select>
-          </div>
-  
-            
-          
-          <div className="col-md-2">
-          <label>End date</label><br/>
-         <Select options={options} placeholder="Month" isDisabled={selected} onChange={(value)=>{formik.setFieldValue("endmonth",value.value)}}  value={defaultvalue(formik.values.endmonth)}></Select>
-          </div>
-
-          <div className="col-md-2">
-         <Select  className="select-year"  options={options1} isDisabled={selected} placeholder="Year" onChange={(value)=>{formik.setFieldValue("endyear",value.value)}}  value={defaultvalue(formik.values.endyear)}></Select>
-          </div>
-           </div>
-
-           <div className="row"> 
-          <div className="col-md-4 offset-6">
-          <input className="Checkbox" type="checkbox" checked={selected} onChange={()=>setSelected(!selected)} ></input>
-          <label>I presently work here</label>
-            </div>
-             </div> */}
+       
 
 
              { formik.values.resume.map((item,i)=>{
@@ -262,13 +209,15 @@ console.log("formik.values",formik.values)
      <div className="row">
      <div className="col-md-4">
      <label>Employer</label><br/>
-     <input className="input" placeholder="e.g.IBM"></input>
+     <input className="input" placeholder="e.g.IBM" name={`resume[${i}.employer]`}
+      value={formik.values.resume[i].employer} onChange={formik.handleChange}></input>
 
      </div>
 
      <div className="col-md-4">
      <label>Job title</label><br/>
-     <input className="input" placeholder="e.g.Engineer" name="jobtitle" ></input>
+     <input className="input" placeholder="e.g.Engineer" name="jobtitle" name={`resume[${i}.jobtitle]`}
+      value={formik.values.resume[i].jobtitle} onChange={formik.handleChange}></input>
      </div>
        </div>
 
@@ -277,12 +226,14 @@ console.log("formik.values",formik.values)
        
        <div className="col-md-4">
        <label>City</label><br/>
-       <input className="input" placeholder="e.g.Chennai" name="city" ></input>
+       <input className="input" placeholder="e.g.Chennai" name="city" name={`resume[${i}.city]`}
+      value={formik.values.resume[i].city} onChange={formik.handleChange} ></input>
        </div>
 
        <div className="col-md-4">
        <label>State</label><br/>
-       <input className="input" placeholder="e.g.Tamil Nadu" name="state" ></input>
+       <input className="input" placeholder="e.g.Tamil Nadu" name="state" name={`resume[${i}.state]`}
+      value={formik.values.resume[i].state} onChange={formik.handleChange}></input>
        </div>
          </div>
 
@@ -291,22 +242,23 @@ console.log("formik.values",formik.values)
        
        <div className="col-md-2">
        <label>Start date</label><br/>
-      <Select  placeholder="Month" ></Select>
+      <Select  placeholder="Month" options={options} onChange={(value,i)=>{formik.setFieldValue("startmonth",value.value)}}
+        value={defaultvalue(formik.values.resume.startmonth)} ></Select>
        </div>
 
        <div className="col-md-2">
-      <Select className="select-year" placeholder="Year" ></Select>
+      <Select className="select-year" placeholder="Year" options={options1}></Select>
        </div>
 
          
        
        <div className="col-md-2">
        <label>End date</label><br/>
-      <Select  placeholder="Month"></Select>
+      <Select  placeholder="Month" options={options}></Select>
        </div>
 
        <div className="col-md-2">
-      <Select  className="select-year"  placeholder="Year" ></Select>
+      <Select  className="select-year"  placeholder="Year" option={options1}></Select>
        </div>
         </div>
 
@@ -335,7 +287,7 @@ console.log("formik.values",formik.values)
            
 
 
-            {/* <div className="row text-editor">
+            <div className="row text-editor">
             <label>Job description</label>
           <div className="col-md-6">
           <ReactQuill  theme="snow"   onChange={handleChange}
@@ -350,9 +302,9 @@ console.log("formik.values",formik.values)
             </div>
             <div className="Button">
             <Button className="Back">BACK</Button>
-            <Button className="Submit" type="submit" >SUBMIT</Button>
+            <Button className="Submit" type="submit"  >SUBMIT</Button>
            </div>
-            </div> */}
+            </div>
  
 
            
