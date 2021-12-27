@@ -130,6 +130,9 @@
 
   .education {
       display: flex;
+      .head {
+          margin: 2em 0 0 0;
+      }
       .formview {
         margin: 1.5em 0 0 0;
      }
@@ -154,10 +157,41 @@
         margin: 1.5em 0 0 0;
      }
      .check {
-        margin: 3em 0 0 24em;
+        margin: 1em 0 0 24em;
      }
      .check label {
         margin: 0 0 0 0.8em;
+     }
+     .addbutton {
+         margin: 1em 0 1em 0;
      }  
+     .add {
+         background-color: #fff;
+         height: 3em;
+         width: 7em;
+         color: #2FBE6E;
+         border-color: #2FBE6E;  
+     }
+     .remove {
+        background-color: #fff;
+        height: 3em;
+        width: 7em;
+        color: #ee1111;
+        border-color: #ee1111;  
+    }
+    .back {
+        background-color: #fff;
+        height: 3em;
+        width: 7em;
+        color: #000;
+        border-color: rgb(193, 200, 207);  
+    }
+    .save {
+        background-color: orange;
+        height: 3em;
+        width: 7em;
+        color: #fff;
+        border-color: orange;  
+    }
       
   }
