@@ -74,8 +74,6 @@ import { useState } from 'react';
 
    const onSubmit=(values,{resetForm})=>{
      setregister([values])
-
-     resetForm()
    }
   
   const formik=useFormik({
@@ -89,57 +87,64 @@ import { useState } from 'react';
 // console.log("fomrik.errors",formik.errors)
   // console.log("formik",formik.values)
   return (
-<div>
 
- <Container>
+<div className="registration ">
+  <div className="container">
+<form onSubmit={formik.handleSubmit}>
 
- <form onSubmit={formik.handleSubmit}>
-   <h1 style={{marginLeft: 18}}>REGISTRATION</h1>
+   <h1>REGISTRATION</h1>
 
-<div style={{marginTop:20}}>
-<label style={{fontSize:20,marginLeft: 10, marginTop: 20,fontWeight:"bold"}} htmlFor="Firstname"> First Name</label><br/>
+
+
+<div className="row">
+    <div className="col-md-6" >
+ <label htmlFor="Firstname"> First Name</label><br/>
   <input type="text" name="Firstname" id="Firstname" value={formik.values.Firstname} onChange={formik.handleChange}
-   style={{ height: 27, width: 250, marginLeft: 10,marginTop:7 }} onBlur={formik.handleBlur}></input><br/>
-   {formik.touched.Firstname && formik.errors.Firstname? <div style={{color:"red", marginLeft: 10}}>{formik.errors.Firstname}</div> : null}
+    onBlur={formik.handleBlur}></input><br/>
+   {formik.touched.Firstname && formik.errors.Firstname? <div className="error">{formik.errors.Firstname}</div> : null}
    </div>
 
-<div style={{marginTop:20}}>
-<label style={{fontSize:20,marginLeft: 10, marginTop: 20,fontWeight:"bold"}} htmlFor="Lastname"> Last Name</label><br/>
-  <input style={{ height: 27, width: 250, marginLeft: 10,marginTop:7 }} type="text" name="Lastname" id="Lastname"
+<div className="col-md-6">
+<label htmlFor="Lastname"> Last Name</label><br/>
+  <input  type="text" name="Lastname" id="Lastname"
   value={formik.values.Lastname} onChange={formik.handleChange} onBlur={formik.handleBlur}></input><br/>
-  {formik.touched.Lastname && formik.errors.Lastname? <div style={{color:"red", marginLeft: 10}}>{formik.errors.Lastname}</div> : null}
+  {formik.touched.Lastname && formik.errors.Lastname? <div  className="error">{formik.errors.Lastname}</div> : null}
+  </div>
   </div>
   
-  <div style={{marginTop:20}}>
-<label style={{fontSize:20,marginLeft: 10, marginTop: 20,fontWeight:"bold"}} htmlFor="Email"> Email</label><br/>
-  <input style={{ height: 27, width: 250, marginLeft: 10,marginTop:7 }} type="email" name="Email" id="Email"
+  
+  <div className="row">
+    <div className="col-md-6" >
+<label htmlFor="Email"> Email</label><br/>
+  <input  type="email" name="Email" id="Email"
   value={formik.values.Email} onChange={formik.handleChange} onBlur={formik.handleBlur} ></input><br/>
-  {formik.touched.Email && formik.errors.Email? <div style={{color:"red", marginLeft: 10}}>{formik.errors.Email}</div> : null}
+  {formik.touched.Email && formik.errors.Email? <div  className="error">{formik.errors.Email}</div> : null}
   </div>
 
-  <div style={{marginTop:20}}>
-<label style={{fontSize:20,marginLeft: 10, marginTop: 20,fontWeight:"bold"}} htmlFor="Phone"> Phone</label><br/>
-  <input style={{ height: 27, width: 250, marginLeft: 10,marginTop:7 }} type="number" name="Phone" id="Phone"
+  <div className="col-md-6" >
+<label htmlFor="Phone"> Phone</label><br/>
+  <input  type="number" name="Phone" id="Phone"
   value={formik.values.Phone} onChange={formik.handleChange} onBlur={formik.handleBlur}></input><br/>
-  {formik.touched.Phone && formik.errors.Phone? <div style={{color:"red", marginLeft: 10}}>{formik.errors.Phone}</div> : null}
-  </div>
+  {formik.touched.Phone && formik.errors.Phone? <div  className="error">{formik.errors.Phone}</div> : null}
+  </div></div>
 
-  <div style={{marginTop:20}}>
-<label style={{fontSize:20,marginLeft: 10, marginTop: 20,fontWeight:"bold"}} htmlFor="Password"> Password</label><br/>
-  <input style={{ height: 27, width: 250, marginLeft: 10,marginTop:7 }} type="password" name="Password" id="Password"
+  <div className="row">
+    <div className="col-md-6" >
+<label htmlFor="Password"> Password</label><br/>
+  <input  type="password" name="Password" id="Password"
    value={formik.values.Password} onChange={formik.handleChange} onBlur={formik.handleBlur}></input><br/>
-   {formik.touched.Password && formik.errors.Password? <div style={{color:"red", marginLeft: 10}}>{formik.errors.Password}</div> : null}
+   {formik.touched.Password && formik.errors.Password? <div  className="error">{formik.errors.Password}</div> : null}
   </div>
 
-  <div style={{marginTop:20}}>
-<label style={{fontSize:20,marginLeft: 10, marginTop: 20,fontWeight:"bold"}} htmlFor="Confirmpassword"> Confirm Password</label><br/>
-  <input style={{ height: 27, width: 250, marginLeft: 10,marginTop:7 }} type="password" name="Confirmpassword" id="Confirmpassword"
+  <div className="col-md-6" >
+<label htmlFor="Confirmpassword"> Confirm Password</label><br/>
+  <input  type="password" name="Confirmpassword" id="Confirmpassword"
   value={formik.values.Confirmpassword} onChange={formik.handleChange} onBlur={formik.handleBlur}></input><br/>
-  {formik.touched.Confirmpassword &&formik.errors.Confirmpassword? <div style={{color:"red", marginLeft: 10}}>{formik.errors.Confirmpassword}</div> : null}
-</div>
+  {formik.touched.Confirmpassword &&formik.errors.Confirmpassword? <div  className="error">{formik.errors.Confirmpassword}</div> : null}
+</div></div>
 
 
-<Button className="loginBtn loginBtn-hover" style={{marginTop:20,fontSize:20,marginLeft: 10}} type="submit">Register</Button>
+<Button className="Submit " style={{marginTop:20,fontSize:20,marginLeft: 10}} type="submit">Register</Button>
 
 
 
@@ -147,9 +152,8 @@ import { useState } from 'react';
 
 
  </form>
-</Container>
 
-
+ </div>
  </div>
 
 
