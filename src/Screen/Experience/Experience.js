@@ -101,6 +101,7 @@ const onSubmit=(values)=>{
 
 const formik=useFormik({
   initialValues:{
+    resume:[{
     data:"",
     employer:"",
     jobtitle:"",
@@ -109,7 +110,7 @@ const formik=useFormik({
     startmonth:"",
     startyear:"",
     endmonth:"",
-    endyear:""},
+    endyear:""}]},
     onSubmit
 })
 
@@ -121,8 +122,8 @@ const [editor, setEditor] = useState({
 
 
 const [experience, setexperience] = useState('')
-const[number,setnumber]=useState(0)
-const[empty,setempty]=useState([])
+// const[number,setnumber]=useState(1)
+const[empty,setempty]=useState([0])
 
 
 const defaultvalue=(value)=>{
@@ -137,14 +138,27 @@ function handleChange(content){
 
 const Resume=()=>{
  
-  let add=number
-  add=add+1
-  setnumber(add)
-  for(let i=number;i<add;i++)
+  let length=formik.values.resume.length
+  let index= length-1;
+  
+  let additionaldata={
+    data:"",
+    employer:"",
+    jobtitle:"",
+    city:"",
+    state:"",
+    startmonth:"",
+    startyear:"",
+    endmonth:"",
+    endyear:""}
+  
+  for(let i=index;i<length;i++)
   {
+    formik.values.resume.push(additionaldata)
     empty.push(i)
-  }
 
+  }
+ 
 
 }
 
@@ -160,9 +174,9 @@ const Remove=()=>{
 
   // console.log((new Date()).getFullYear(),"hello ")
 //   console.log("editor",editor);
-// console.log("formik.values-->",formik.values)
+console.log("formik.values",formik.values) 
 //   console.log("experience",experience)
-// console.log("number",empty)
+// console.log("number",employer)
 
 	    return (
 	      <div className="Experience container">
@@ -180,7 +194,7 @@ const Remove=()=>{
 
        <div  className="middle">
        <form onSubmit={formik.handleSubmit}>
-        <div className="row">
+        {/* <div className="row">
         <div className="col-md-4">
         <label>Employer</label><br/>
         <input className="input" placeholder="e.g.IBM" onChange={formik.handleChange} name="employer" value={formik.values.employer}></input>
@@ -235,10 +249,10 @@ const Remove=()=>{
           <input className="Checkbox" type="checkbox" checked={selected} onChange={()=>setSelected(!selected)} ></input>
           <label>I presently work here</label>
             </div>
-             </div>
+             </div> */}
 
 
-             {empty!==undefined && empty.map((item)=>{
+             { empty.map((item,i)=>{
     return (
      
      
@@ -248,7 +262,8 @@ const Remove=()=>{
      <div className="row">
      <div className="col-md-4">
      <label>Employer</label><br/>
-     <input className="input" placeholder="e.g.IBM" name="employer" ></input>
+     <input className="input" placeholder="e.g.IBM"></input>
+
      </div>
 
      <div className="col-md-4">
@@ -320,7 +335,7 @@ const Remove=()=>{
            
 
 
-            <div className="row text-editor">
+            {/* <div className="row text-editor">
             <label>Job description</label>
           <div className="col-md-6">
           <ReactQuill  theme="snow"   onChange={handleChange}
@@ -337,7 +352,7 @@ const Remove=()=>{
             <Button className="Back">BACK</Button>
             <Button className="Submit" type="submit" >SUBMIT</Button>
            </div>
-            </div>
+            </div> */}
  
 
            
