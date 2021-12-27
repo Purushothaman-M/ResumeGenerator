@@ -179,7 +179,10 @@ const Remove=()=>{
   setempty(length)
 }
   
-
+// const handleMonth=(value,index)=>{
+//   console.log("value-->",value, "index-->",index);
+  
+// }
 
 
 
@@ -247,23 +250,26 @@ console.log("formik.values",formik.values)
        
        <div className="col-md-2">
        <label>Start date</label><br/>
-      <Select  placeholder="Month" options={options} onChange={(value,i)=>{formik.setFieldValue(`resume[${i}].startmonth`,value.value)}}
+      <Select  placeholder="Month" options={options} onChange={(value)=>{formik.setFieldValue(`resume[${i}].startmonth`,value.value)}}
         value={defaultvalue(formik.values.resume.startmonth)} ></Select>
        </div>
 
        <div className="col-md-2">
-      <Select className="select-year" placeholder="Year" options={options1}></Select>
+      <Select className="select-year" placeholder="Year" options={options1} 
+      onChange={(value)=>{formik.setFieldValue(`resume[${i}].startyear`,value.value)}} value={defaultvalue(formik.values.resume.startyear)}></Select>
        </div>
 
          
        
        <div className="col-md-2">
        <label>End date</label><br/>
-      <Select  placeholder="Month" options={options}></Select>
+      <Select  placeholder="Month" options={options} 
+      onChange={(value)=>{formik.setFieldValue(`resume[${i}].endmonth`,value.value)}} value={defaultvalue(formik.values.resume.endmonth)}></Select>
        </div>
 
        <div className="col-md-2">
-      <Select  className="select-year"  placeholder="Year" option={options1}></Select>
+      <Select  className="select-year"  placeholder="Year" options={options1} 
+      onChange={(value)=>{formik.setFieldValue(`resume[${i}].endyear`,value.value)}} value={defaultvalue(formik.values.resume.endyear)}></Select>
        </div>
         </div>
 

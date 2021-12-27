@@ -1,4 +1,5 @@
 import { useFormik } from 'formik'
+import {Button} from "react-bootstrap"
 import React, { useState } from 'react'
 import Editor from '../../Components/Quill'
 
@@ -21,7 +22,7 @@ function handleChange(content){
   setEditor({content})
 }
   return (
-    <div className='contain'>
+    <div className='Objective'>
        <form>
       <div className='container'>
 <h2>OBJECTIVE</h2>
@@ -31,10 +32,12 @@ function handleChange(content){
 			value={editor.content} onBlur={(value)=>formik.setFieldValue("data",  "" + editor.content)}/>
   </div>
   <div>
-  <button className='submitbnt' >{"SUBMIT"}</button>
+ 
   </div>
 </div>
       </div> 
+
+      <Button className='Submit' type="submit" >{"SUBMIT"}</Button>
       </form>  
     </div>
   

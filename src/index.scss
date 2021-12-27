@@ -139,22 +139,23 @@
      .input{
         height:2.4rem;
         width: 23em;
-        border-color: rgb(193, 200, 207) ;
+        border-color: #2FBE6E ;
         border-width: 0.1em;
         border-radius: 0.3em;
      }
      .newinput {
         height:2.4rem;
         width: 11em;
-        border-color: rgb(193, 200, 207) ;
+        border-color: #2FBE6E ;
         border-width: 0.1em;
         border-radius: 0.3em;
     }
-     .select {
-        margin: 0 0 0 2em;
-     }
+     
      .year {
         margin: 1.5em 0 0 0;
+        border-color: #2FBE6E;
+        width: "max-content";
+        min-Width: "100%"
      }
      .check {
         margin: 1em 0 0 24em;
@@ -195,3 +196,68 @@
     }
       
   }
+
+  .registration{
+    display: flex;
+    background-image: url("https://images.pexels.com/photos/1287145/pexels-photo-1287145.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    height: 48em;
+    
+    .body {
+      font-family: sans-serif;
+         }
+         form{
+            label{
+                font-size: 15px;
+                color: #303030;
+                line-height: 3;
+                margin-top: 20px;
+            }
+          
+           
+            
+            input{
+                width: 25em;
+                height: 2.3em;
+                border-radius: 5px;
+                border-width: 1px;   
+             
+            }
+            ::placeholder{
+                color: darkgray;
+                font-size: 13px;
+                padding: 0 0 0 10px;
+            }
+
+            
+            .Submit{
+                background-color: #F07201;
+                height: 3em;
+                width: 7em;
+                border-color: #F07201;
+               
+            }
+            .error{
+                font-size: 18px;
+                color: red;
+            }
+        }
+          }
+
+
+
+.Objective{
+
+    display: flex;
+    .quill{
+       height: 30em; 
+       width: 80em;
+    }
+    .Submit{
+        background-color: #F07201;
+        height: 3em;
+        width: 7em;
+        border-color: #F07201;
+        margin-left: 60em;
+       
+    }
+}
