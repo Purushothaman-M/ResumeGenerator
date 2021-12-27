@@ -6,6 +6,7 @@ import Education from "./Screen/Education/education"
 import Home from "./Screen/Home/home";
 import Errorpage from "./Screen/Errorpage/errorpage";
 import Experience from "./Screen/Experience/Experience";
+import Skills from "./Screen/Skills/skills";
 
 export default function App() {
 
@@ -20,6 +21,7 @@ export default function App() {
     <Link style={{marginLeft:20}} to="/PersonalInfo">PersonalInfo</Link>
     <Link style={{marginLeft:20}} to="/Education">Education</Link>
     <Link style={{marginLeft:20}} to="/Experience">Experience</Link>
+    <Link style={{marginLeft:20}} to="/Skills">Skills</Link>
 
    </nav>
       <Switch>
@@ -28,6 +30,8 @@ export default function App() {
      <Route path="/PersonalInfo" exact component={PersonalInfo} />
      <Route path="/Education" exact component={Education} />
      <Route path="/Experience" exact component={Experience} />
+     <Route path="/Skills" exact component={Skills} />
+
 
      <Route path="*" component={Errorpage}/>
    </Switch>
