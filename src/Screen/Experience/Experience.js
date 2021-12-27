@@ -161,13 +161,22 @@ const Resume=()=>{
    
 
   }
- setempty("hello")
+ setempty(index)
 
 }
 
 const Remove=()=>{
-  formik.values.resume.pop()
-  setempty("hello")
+  
+  
+  
+  let length=formik.values.resume.length
+ 
+  if(formik.values.resume.length>1)
+  {
+    formik.values.resume.pop()
+  }
+  
+  setempty(length)
 }
   
 
@@ -242,7 +251,7 @@ console.log("formik.values",formik.values)
        
        <div className="col-md-2">
        <label>Start date</label><br/>
-      <Select  placeholder="Month" options={options} onChange={(value,i)=>{formik.setFieldValue("startmonth",value.value)}}
+      <Select  placeholder="Month" options={options} onChange={(value,i)=>{formik.setFieldValue(`resume[${i}].startmonth`,value.value)}}
         value={defaultvalue(formik.values.resume.startmonth)} ></Select>
        </div>
 
@@ -275,6 +284,8 @@ console.log("formik.values",formik.values)
    );
  })}
 
+           
+
            <div className="row">
            <div className="col-md-4 offset-2">
           <Button className="Addmore" onClick={Resume}>+ ADD MORE </Button>
@@ -301,8 +312,8 @@ console.log("formik.values",formik.values)
             
             </div>
             <div className="Button">
-            <Button className="Back">BACK</Button>
-            <Button className="Submit" type="submit"  >SUBMIT</Button>
+            <Button className="Back" onClick={history.goBack}>BACK</Button>
+            <Button className="Submit" type="submit">SUBMIT</Button>
            </div>
             </div>
  
