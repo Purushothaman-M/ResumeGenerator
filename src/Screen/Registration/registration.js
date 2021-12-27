@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import {Button, Container} from "react-bootstrap";
 import { useState } from 'react';
-function App() {
+ export default function registration() {
 
   const[register,setregister]=useState()
 
