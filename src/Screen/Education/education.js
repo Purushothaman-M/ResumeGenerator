@@ -6,6 +6,7 @@ import { Button } from "react-bootstrap";
 
 export default function Education() {
   const [data, setdata]=useState()
+  const [select, setselect]=useState(false)
 
   const formik = useFormik ({
     initialValues:{
@@ -149,7 +150,7 @@ export default function Education() {
  
   return(
     <div>
-      <div className="container">
+      <div className="education container">
         <div className="head">
         
           <div className="row"> 
@@ -170,13 +171,13 @@ export default function Education() {
           </div>
 
           <div className="col-md-2">
-            <label>city</label>
-            <Select placeholder="e.g. Chennai"  ></Select>
+            <label>State</label>
+            <Select placeholder="e.g. TN" options={options} onChange={(value)=>{formik.setFieldValue("state",value.value)}} value={defaultvalue(formik.values.state)} ></Select>
           </div>
 
           <div className="col-md-2">
-            <label>State</label>
-            <Select placeholder="e.g. TamilNadu" options={options} onChange={(value)=>{formik.setFieldValue("state",value.value)}} value={defaultvalue(formik.values.state)} ></Select>
+            <label>city</label><br/>
+            <input className="newinput" type="text" name="city" placeholder="e.g. Chennai"/>
           </div>
 
             </div>
@@ -203,20 +204,20 @@ export default function Education() {
 
           <div className="col-md-4">
             <label>Select a degree</label><br/>
-            <input className="input" type="text" name="selectdegree" value={formik.values.selectdegree} onChange={formik.handleChange}/>
+            <input className="input" type="text" name="selectdegree" placeholder="e.g. BE/Electrical and Electronic Engineering" value={formik.values.selectdegree} onChange={formik.handleChange}/>
           </div>
 
           <div className="col-md-2">
             <label >Graduation date</label>
-            <Select placeholder="Month" options={options1} onChange={(value)=>{formik.setFieldValue("graduationmonth",value.value)}} value={defaultvalue(formik.values.graduationmonth)}></Select>
+            <Select placeholder="Month" isDisabled={select} options={options1} onChange={(value)=>{formik.setFieldValue("graduationmonth",value.value)}} value={defaultvalue(formik.values.graduationmonth)}></Select>
           </div>
 
           <div className="col-md-2">
             
-            <Select className="year" placeholder="year" options={options2} onChange={(value)=>{formik.setFieldValue("graduationyear",value.value)}} value={defaultvalue(formik.values.graduationyear)}></Select>
+            <Select className="year" placeholder="year" isDisabled={select} options={options2} onChange={(value)=>{formik.setFieldValue("graduationyear",value.value)}} value={defaultvalue(formik.values.graduationyear)}></Select>
           </div>
           <div className="check">
-            <input type="checkbox"/>
+            <input type="checkbox" checked={select} onChange={()=>{setselect(!select)}}/>
             <label>I Presently attend here</label>
           </div>
 
