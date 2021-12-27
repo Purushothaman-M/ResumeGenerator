@@ -240,6 +240,12 @@
                 font-size: 18px;
                 color: red;
             }
+            .Back{
+                background-color: darkgrey;
+                height: 3em;
+                width: 7em;
+                border-color: #F9F9F9;
+            }
         }
           }
 
@@ -259,5 +265,39 @@
         border-color: #F07201;
         margin-left: 60em;
        
+    }
+}
+
+.personalinfo{
+    .Submit{
+        background-color: #F07201;
+        height: 3em;
+        width: 7em;
+        border-color: #F07201;
+        margin-left: 60em;
+       
+    }
+    .Back{
+        background-color: darkgrey;
+        height: 3em;
+        width: 7em;
+        border-color: #F9F9F9;
+    }
+}
+
+.skill{
+    .Submit{
+        background-color: #F07201;
+        height: 3em;
+        width: 7em;
+        border-color: #F07201;
+        margin-left: 60em;
+       
+    }
+    .Back{
+        background-color: darkgrey;
+        height: 3em;
+        width: 7em;
+        border-color: #F9F9F9;
     }
 }

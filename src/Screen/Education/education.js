@@ -25,7 +25,7 @@ export default function Education() {
       
     },
     onSubmit: (values) =>{
-      alert(JSON.stringify(values));
+      // alert(JSON.stringify(values));
       
       history.push("/skills")
     }
@@ -304,10 +304,10 @@ export default function Education() {
 
             <div className="row justify-content-between">
               <div className="col-md-4 ">
-                <Button className="back">BACK</Button>
+                <Button className="back"  onClick={() => history.push("/Education")}>BACK</Button>
                 </div>
                 <div className="col-md-4">
-                <Button className="save" type="submit">SAVE</Button>
+                <Button className="save" type="submit">Submit</Button>
               </div>
             </div>
 

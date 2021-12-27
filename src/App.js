@@ -17,7 +17,7 @@ export default function App() {
 
   <Router>
     
-   <nav>
+   {/* <nav>
     <Link to="/">Home</Link>
     <Link style={{marginLeft:20}} to="/Objective">Objective</Link>
     <Link style={{marginLeft:20}} to="/PersonalInfo">PersonalInfo</Link>
@@ -27,7 +27,7 @@ export default function App() {
     <Link style={{marginLeft:20}} to="/Registration">Registration</Link>
 
 
-   </nav>
+   </nav> */}
       <Switch>
      <Route path="/" exact component={Home}  />
      <Route path="/Objective" exact component={Objective} />

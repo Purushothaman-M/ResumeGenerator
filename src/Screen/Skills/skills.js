@@ -2,11 +2,15 @@ import { useFormik } from 'formik';
 import {Button} from 'react-bootstrap';
 import React,{useState} from 'react';
 import Select from 'react-select';
+import { useHistory } from 'react-router';
+
 
 
 
 export  default function Skills(props) {
 const[empty,setempty]=useState()
+let history=useHistory()
+
 
     
 const options=[
@@ -16,10 +20,12 @@ const options=[
     {label:"☆☆☆☆☆-Expert ",value:"expert "},
 ]
 
-
+const[data,setdata]=useState()
 
     const onSubmit=(values)=>{
-  
+      setdata([values])
+      history.push("/Education")
+
         }
       
       const formik=useFormik({
@@ -59,7 +65,7 @@ const options=[
 
 console.log("formik.values.data",formik.values.data)
     return (
-        <div className="Experience container">
+        <div className="Experience  skill container">
       <div className="top">
       <div className="row">
       <div className="col">
@@ -102,10 +108,29 @@ console.log("formik.values.data",formik.values.data)
           </div> </div>
          </form>
          </div>
-         <div  style={{marginTop:50,justifyContent:"space-between",display:"flex"}}>
-   <Button variant="primary" type="button">Back</Button>
-         <Button variant="primary" type="submit"> submit</Button>
-        </div>
+         <div
+            style={{
+              marginTop: 50,
+              justifyContent: "space-between",
+              display: "flex",
+            }}
+          >
+            <Button
+              className="Back"
+              style={{ marginTop: 20, fontSize: 20, marginLeft: 10 }}
+              onClick={() => history.push("/Education")}
+              type="button"
+            >
+              Cancel
+            </Button>
+            <Button
+              className="Submit "
+              style={{ marginTop: 20, fontSize: 20, marginLeft: 10 }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </div>
           </div>
 
          
