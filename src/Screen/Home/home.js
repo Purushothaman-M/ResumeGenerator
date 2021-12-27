@@ -13,32 +13,40 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useFormik } from 'formik';
+import { useHistory } from 'react-router-dom';
 
 
 const theme = createTheme();
 
 export default function SignInSide() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    // eslint-disable-next-line no-console
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
-  };
+    let history = useHistory ();
+//   const handleSubmit = (event) => {
+//     event.preventDefault();
+//     const data = new FormData(event.currentTarget);
+//     // eslint-disable-next-line no-console
+//     console.log({
+//       email: data.get('email'),
+//       password: data.get('password'),
+//     });
+//   };
   const onSubmit=(values)=>{
-    alert(JSON.stringify(values, null, 2));
+    if(values.emailaddress==="project@gmail.com" && values.password==="1234" )
+    {
+        history.push ('/Objective');
+    }else{
+        alert("Incorrect Email or Password");
+    }
     
     }
     const validate = values =>{
       let errors={}
-      if(!values.address){
-        errors.address="Required"
+      if(!values.emailaddress){
+        errors.emailaddress="Required"
       }
-      if(!values.zipcode){
-        errors.zipcode="Required"
+      if(!values.password){
+        errors.password="Required"
       }
+      return errors
     }
 
   const formik=useFormik({
@@ -70,6 +78,7 @@ export default function SignInSide() {
           }}
         />
         <Grid item xs={12} sm={8} md={5} component={Paper} elevation={6} square>
+         
           <Box
             sx={{
               my: 8,
@@ -85,16 +94,19 @@ export default function SignInSide() {
             <Typography component="h1" variant="h5">
               Sign in
             </Typography>
-            <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 1 }}>
+            <Box component="form" noValidate onSubmit={formik.handleSubmit} sx={{ mt: 1 }}>
               <TextField
                 margin="normal"
                 required
                 fullWidth
                 id="email"
                 label="Email Address"
-                name="email"
-                autoComplete="email"
+                name="emailaddress"
+                autoComplete="emailaddress"
                 autoFocus
+                onChange={formik.handleChange}
+                value={formik.values.emailaddress}
+                onBlur={formik.handleBlur}
               />
               <TextField
                 margin="normal"
@@ -104,7 +116,10 @@ export default function SignInSide() {
                 label="Password"
                 type="password"
                 id="password"
-                autoComplete="current-password"
+                autoComplete="password"
+                onChange={formik.handleChange}
+                value={formik.values.password}
+                onBlur={formik.handleBlur}
               />
               <FormControlLabel
                 control={<Checkbox value="remember" color="primary" />}
