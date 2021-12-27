@@ -123,7 +123,7 @@ const [editor, setEditor] = useState({
 
 const [experience, setexperience] = useState('')
 // const[number,setnumber]=useState(1)
-const[empty,setempty]=useState([0])
+const[empty,setempty]=useState()
 
 
 const defaultvalue=(value)=>{
@@ -155,10 +155,10 @@ const Resume=()=>{
   for(let i=index;i<length;i++)
   {
     formik.values.resume.push(additionaldata)
-    empty.push(i)
+   
 
   }
- 
+ setempty(index)
 
 }
 
@@ -252,7 +252,7 @@ console.log("formik.values",formik.values)
              </div> */}
 
 
-             { empty.map((item,i)=>{
+             { formik.values.resume.map((item,i)=>{
     return (
      
      
