@@ -2,9 +2,12 @@ import React, {useState} from "react";
 import Select from "react-select";
 import { useFormik } from "formik";
 import { Button } from "react-bootstrap";
+import { useHistory } from 'react-router';
 // import "../../gowthamcss.css"
 
 export default function Education() {
+
+  let history=useHistory()
   
   const [select, setselect]=useState(false)
 
@@ -23,6 +26,8 @@ export default function Education() {
     },
     onSubmit: (values) =>{
       alert(JSON.stringify(values));
+      
+      history.push("/skills")
     }
   })
 
@@ -266,7 +271,7 @@ export default function Education() {
 
           <div className="col-md-2">
             <label >Graduation date</label>
-            <Select placeholder="Month" isDisabled={select} options={options1}></Select>
+            <Select className="menu" placeholder="Month" isDisabled={select} options={options1}></Select>
           </div>
 
           <div className="col-md-2">
