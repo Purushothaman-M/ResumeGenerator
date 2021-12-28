@@ -8,6 +8,7 @@ import Errorpage from "./Screen/Errorpage/errorpage";
 import Experience from "./Screen/Experience/Experience";
 import Skills from "./Screen/Skills/skills";
 import Registration from "./Screen/Registration/registration";
+import Resumetemplate from "./ResumeTemplate/resumetemplate";
 
 
 export default function App() {
@@ -25,6 +26,7 @@ export default function App() {
     <Link style={{marginLeft:20}} to="/Experience">Experience</Link>
     <Link style={{marginLeft:20}} to="/Skills">Skills</Link>
     <Link style={{marginLeft:20}} to="/Registration">Registration</Link>
+     <Link style={{marginLeft:20}} to="/Resumetemplate">Resumetemplate</Link>
 
 
    </nav>
@@ -36,6 +38,7 @@ export default function App() {
      <Route path="/Experience" exact component={Experience} />
      <Route path="/Skills" exact component={Skills} />
      <Route path="/Registration" exact component={Registration} />
+     <Route path="/Resumetemplate" exact component={Resumetemplate} />
 
 
      <Route path="*" component={Errorpage}/>
