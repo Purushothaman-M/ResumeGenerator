@@ -130,8 +130,21 @@
 
   .education {
       display: flex;
+      flex-direction: column;
+      background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK9Pb2qDQu9jPQ2Fn74L1tCJWvyT5byJRTvQ&usqp=CAU");
+      height: 38em;
+      width: 85em;
       .head {
           margin: 2em 0 0 0;
+      }
+      h4 {
+          font-weight: bold;
+      }
+      p {
+        font-weight: bold;
+      }
+      label {
+        font-weight: bold;
       }
       .formview {
         margin: 1.5em 0 0 0;
@@ -158,10 +171,7 @@
         min-Width: 100%
      }
      .check {
-        margin: 1em 0 0 24em;
-     }
-     .check label {
-        margin: 0 0 0 0.8em;
+        margin: 1em 0 0 0;
      }
      .addbutton {
          margin: 1em 0 1em 0;
@@ -193,6 +203,11 @@
         width: 7em;
         color: #fff;
         border-color: orange;  
+    }
+    .footer {
+        background-color: red;
+        height: 5em;
+        width: 100%;
     }
       
   }

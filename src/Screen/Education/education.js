@@ -182,13 +182,13 @@ export default function Education() {
 
  
   return(
-    <div>
-      <div className="education container">
+    <div className="education">
+      <div className="container">
         <div className="head">
         
           <div className="row"> 
           <div className="col-md-6">     
-             <h5>EDUCATION</h5>  
+             <h4>EDUCATION</h4>  
              <p>Add information about your education background.</p>
           </div>
           </div>
@@ -200,17 +200,17 @@ export default function Education() {
 
           <div className="col-md-4">
             <label>School Name</label><br/>
-            <input className="input" type="text" name="schoolname" placeholder="e.g. Schoolname" value={formik.values.schoolname} onChange={formik.handleChange}/>
+            <input className="input" type="text" name="schoolname" placeholder="Vivekanatha matric hr.sec school" value={formik.values.schoolname} onChange={formik.handleChange}/>
           </div>
 
           <div className="col-md-2">
             <label>State</label>
-            <Select placeholder="e.g. TN" options={options} onChange={(value)=>{formik.setFieldValue("state",value.value)}} value={defaultvalue(formik.values.state)} ></Select>
+            <Select placeholder=" TN" options={options} onChange={(value)=>{formik.setFieldValue("state",value.value)}} value={defaultvalue(formik.values.state)} ></Select>
           </div>
 
           <div className="col-md-2">
             <label>city</label><br/>
-            <input className="newinput" type="text" name="city" placeholder="e.g. Chennai" value={formik.values.city} onChange={formik.handleChange} />
+            <input className="newinput" type="text" name="city" placeholder=" Chennai" value={formik.values.city} onChange={formik.handleChange} />
           </div>
 
             </div>
@@ -221,12 +221,12 @@ export default function Education() {
 
           <div className="col-md-4">
             <label>SSLC</label><br/>
-            <input className="input" type="number" name="sslc" placeholder="e.g. 100" value={formik.values.sslc} onChange={formik.handleChange} />
+            <input className="input" type="number" name="sslc" placeholder=" 100%" value={formik.values.sslc} onChange={formik.handleChange} />
           </div>
 
           <div className="col-md-4">
             <label >HSC</label>
-            <input className="input" type="number" name="hsc" placeholder="e.g.100" value={formik.values.hsc} onChange={formik.handleChange}/>
+            <input className="input" type="number" name="hsc" placeholder=" 100%" value={formik.values.hsc} onChange={formik.handleChange}/>
           </div>
 
           </div>
@@ -266,7 +266,7 @@ export default function Education() {
 
           <div className="col-md-4">
             <label>Select a degree</label><br/>
-            <input className="input" type="text" name={`graduation[${i}.selectdegree]`} placeholder="e.g. BE/Electrical and Electronic Engineering" value={formik.values.graduation[i].selectdegree} onChange={formik.handleChange}/>
+            <input className="input" type="text" name={`graduation[${i}.selectdegree]`} placeholder=" BE/Electrical and Electronic Engineering" value={formik.values.graduation[i].selectdegree} onChange={formik.handleChange}/>
           </div>
 
           <div className="col-md-2">
@@ -279,8 +279,10 @@ export default function Education() {
             <Select className="year" placeholder="year" isDisabled={select} options={options2} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationyear`,value.value)}} value={defaultvalue(formik.values.graduation.graduationyear)} ></Select>
           </div>
           <div className="check">
+          <div className="col-md-4 offset-4">
             <input type="checkbox" checked={select} onChange={()=>{setselect(!select)}}/>
             <label>I Presently attend here</label>
+          </div>
           </div>
 
             </div>
@@ -306,7 +308,7 @@ export default function Education() {
               <div className="col-md-4 ">
                 <Button className="back"  onClick={() => history.push("/Experience")}>BACK</Button>
                 </div>
-                <div className="col-md-4">
+                <div className="col-md-5">
                 <Button className="save" type="submit">Submit</Button>
               </div>
             </div>
@@ -315,6 +317,7 @@ export default function Education() {
           </div>
           </div>
         </div>
+        
       </div>
     
   );
