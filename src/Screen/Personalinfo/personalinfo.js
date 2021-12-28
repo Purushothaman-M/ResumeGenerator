@@ -13,7 +13,6 @@ export default function PersonalInfo(props) {
 
   const [data,setData]=useState()
   const options = useMemo(() => countryList().getData(), []) 
-
   
   let history=useHistory()
 
@@ -21,8 +20,7 @@ export default function PersonalInfo(props) {
   const onSubmit =  (values,{resetForm}) => {
     //  alert(JSON.stringify(values, null, 2));
      setData([values])
-     history.push({pathname:"/Experience",state:values
-    })   
+     history.push("/Experience")   
   } 
   ////////////////////////////////////
   const validate = values =>{
@@ -79,45 +77,45 @@ export default function PersonalInfo(props) {
   }
 
 
-  // console.log("data--->",data)
+  console.log("data--->",data)
   return (
     <div className=' personalinfo contain'>
       <form onSubmit={formik.handleSubmit}>
       <div className='container'>
 <h5>PERSONAL INFO</h5>
-<span className='span'>Employer Will Use This Information To Contact You</span>
+<span>Employer Will Use This Information To Contact You</span>
 <div className='subcontain'>
 
   <div className='middle'>
     <div> 
-      <label className='lable'>FULL NAME</label><br/>
+      <label>FULL NAME</label><br/>
    <input className='i1'  placeholder="e.g-John" name="firstname"  onChange={formik.handleChange} value={formik.values.firstname} onBlur={formik.handleBlur}  />
    {formik.touched.firstname && formik.errors.firstname &&(<div style={{color:"#cc25b0"}}>{formik.errors.firstname}</div>)}
    </div>
    <div>
-   <label className='lable'>LAST NAME</label><br/>
+   <label>LAST NAME</label><br/>
    <input className='i1' placeholder="e.g-Deo" name="lastname"   onChange={formik.handleChange} value={formik.values.lastname} onBlur={formik.handleBlur}/>
    {formik.touched.lastname && formik.errors.lastname &&(<div style={{color:"#cc25b0"}}>{formik.errors.lastname}</div>)}
    </div>
   </div>
   <div style={{marginTop:20}}>
-   <label className='lable'>ADDRESS</label><br/>
+   <label>ADDRESS</label><br/>
    <input className='i2'  placeholder="e.g-10,cross street" name="address"   onChange={formik.handleChange} value={formik.values.address} onBlur={formik.handleBlur}/>
    {formik.touched.address && formik.errors.address &&(<div style={{color:"#cc25b0"}}>{formik.errors.address}</div>)}
    </div>
    <div className='city'>
    <div>
-   <label className='lable'>CITY</label><br/>
+   <label>CITY</label><br/>
    <input className='i1' placeholder="e.g.-Gummidipoondi" name="city"  onChange={formik.handleChange} value={formik.values.city} onBlur={formik.handleBlur}/>
    {formik.touched.city && formik.errors.city &&(<div style={{color:"#cc25b0"}}>{formik.errors.city}</div>)}
    </div>
    <div>
-   <label className='lable'>ZIP CODE</label><br/>
+   <label>ZIP CODE</label><br/>
    <input className='i3'  placeholder="e.g.-601201" name="zipcode"  onChange={formik.handleChange} value={formik.values.zipcode} onBlur={formik.handleBlur}/>
    {formik.touched.zipcode && formik.errors.zipcode &&(<div style={{color:"#cc25b0"}}>{formik.errors.zipcode}</div>)}
    </div>
    <div style={{marginLeft:50}}>
-   <label className='lable'>COUNTRY</label><br/>
+   <label>COUNTRY</label><br/>
    <Select className='countryi4' options={options} name="country" value={defaultvalue(formik.values.country)} onChange={(value)=>{formik.setFieldValue("country",value.value)}} />
    {/* <input className='countryi4' placeholder="India" name="country" onChange={formik.handleChange} value={formik.values.country} onBlur={formik.handleBlur}/> */}
    {formik.touched.country && formik.errors.country &&(<div style={{color:"#cc25b0"}}>{formik.errors.country}</div>)}
@@ -125,12 +123,12 @@ export default function PersonalInfo(props) {
    </div>
    <div className='city'>
    <div> 
-      <label className='lable'>EMAIL ADDRESS</label><br/>
+      <label>EMAIL ADDRESS</label><br/>
    <input className='i1' placeholder="e.g-john_deo@example.com" name="emailaddress" onChange={formik.handleChange} value={formik.values.emailaddress} onBlur={formik.handleBlur}/>
    {formik.touched.emailaddress && formik.errors.emailaddress &&(<div style={{color:"#cc25b0"}}>{formik.errors.emailaddress}</div>)}
    </div>
    <div>
-   <label className='lable'>PHONE NUMBER</label><br/>
+   <label>PHONE NUMBER</label><br/>
    <input className='i1' placeholder="e.g 978-622-6812" name="phonenumber" onChange={formik.handleChange} value={formik.values.phonenumber} onBlur={formik.handleBlur}/>
    {formik.touched.phonenumber && formik.errors.phonenumber &&(<div style={{color:"#cc25b0"}}>{formik.errors.phonenumber}</div>)}
    </div>

@@ -5,24 +5,15 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import { useFormik } from 'formik';
 import {Button} from 'react-bootstrap';
-import { useHistory} from 'react-router';
-import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router';
 // import "../../vikramcss.css"
 
 
 
 
-export default function App (props) {
-  const location = useLocation();
+export default function App () {
 
 let history=useHistory()
-
-console.log("routerparams---->",location.state)
-
-let data=JSON.parse(JSON.stringify(location.state))
-
-
-
  const options=[
     {label:"January",value:"January"},
     {label:"February",value:"February"},
@@ -105,11 +96,8 @@ const options1=[
 
 // const [selected,setSelected]=React.useState(false)
 const onSubmit=(values)=>{
-  console.log("inside")
+  
   setexperience(values)
-  let val=experience && experience
-  let arr={...val,...data}
-  console.log("arr",arr)
 
   history.push("/education")
   }
