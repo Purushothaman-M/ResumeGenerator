@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+  import React,{useState} from 'react';
 import 'react-quill/dist/quill.snow.css';
 import Select from 'react-select';
 import ReactQuill from 'react-quill';
@@ -11,9 +11,13 @@ import { useHistory } from 'react-router';
 
 
 
-export default function App () {
+export default function App ({location:{state}}) {
 
 let history=useHistory()
+// let location=useLocation()
+// console.log("props",state)
+
+let temp=JSON.parse(JSON.stringify(state))
  const options=[
     {label:"January",value:"January"},
     {label:"February",value:"February"},
@@ -98,8 +102,12 @@ const options1=[
 const onSubmit=(values)=>{
   
   setexperience(values)
+let val=values
+let arr={...val,...temp}
+console.log("arr",arr)
 
-  history.push("/education")
+  history.push({pathname:"/education",state:arr})
+
   }
 
 const formik=useFormik({
@@ -198,8 +206,8 @@ const Remove=()=>{
 // }
 
 
- console.log("presentlywork",formik.values.presentlywork)
-console.log("formik.values",formik.values) 
+//  console.log("presentlywork",formik.values.presentlywork)
+// console.log("formik.values",formik.values) 
 
 	    return (
 	      <div className="Experience ">

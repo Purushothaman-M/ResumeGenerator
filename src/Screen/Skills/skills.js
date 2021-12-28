@@ -7,10 +7,11 @@ import { useHistory } from 'react-router';
 
 
 
-export  default function Skills(props) {
+export  default function Skills({location:{state}}) {
 const[empty,setempty]=useState()
 let history=useHistory()
 
+let temp=JSON.parse(JSON.stringify(state))
 
     
 const options=[
@@ -24,13 +25,16 @@ const[data,setdata]=useState()
 
     const onSubmit=(values)=>{
       setdata([values])
-      history.push("/Objective")
+      let val=values
+      let skillval={...val,...temp}
+      console.log("skilldata",skillval)
+      history.push({pathname:"/Objective",state:skillval})
 
         }
       
       const formik=useFormik({
         initialValues:{
-            data:[{skill:"",level:""}]
+            skilldata:[{skill:"",level:""}]
          },
           onSubmit
       })
@@ -46,7 +50,7 @@ const[data,setdata]=useState()
         
         for(let i=index;i<length;i++)
         {
-          formik.values.data.push(additionaldata)
+          formik.values.skilldata.push(additionaldata)
          
       
         }
@@ -56,14 +60,14 @@ const[data,setdata]=useState()
       const Remove=()=>{
        let length=formik.values.data.length
        if(length>1){
-        formik.values.data.pop()
+        formik.values.skilldata.pop()
        }
        setempty(length)
       }
 
 
 
-console.log("formik.values.data",formik.values.data)
+console.log("formik.values.data",formik.values.skilldata)
     return (
         <div className="Experience  skill ">
       <div className="top container">
@@ -75,7 +79,7 @@ console.log("formik.values.data",formik.values.data)
       </div>
      <div  className="middle">
       <form onSubmit={formik.handleSubmit}> 
-           { formik.values.data.map((item,i)=>{
+           { formik.values.skilldata.map((item,i)=>{
   return (
  <>
 
@@ -86,11 +90,11 @@ console.log("formik.values.data",formik.values.data)
    <div className="city">
    <div className="container">
    <label>Skill</label><br/>
-   <input  className='i1' placeholder="e.g.project manager"  name={`data[${i}.skill]`}  onChange={formik.handleChange} value={formik.values.data[i].skill}></input>
+   <input  className='i1' placeholder="e.g.project manager"  name={`skilldata[${i}.skill]`}  onChange={formik.handleChange} value={formik.values.skilldata[i].skill}></input>
    </div>
    <div className="col-md-6">
        <label>Level</label><br/>
-      <Select options={options} className='countryi4' placeholder="Select Your Level"  onChange={(value)=>formik.setFieldValue(`data[${i}].level`,value.value)} ></Select>
+      <Select options={options} className='countryi4' placeholder="Select Your Level"  onChange={(value)=>formik.setFieldValue(`skilldata[${i}].level`,value.value)} ></Select>
        </div>
      </div>
        </>

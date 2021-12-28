@@ -14,19 +14,20 @@ import Resumetemplate from "./ResumeTemplate/resumetemplate";
 export default function App() {
 
 
+
  return(
 
   <Router>
     
    <nav>
-    <Link to="/">Home</Link>
+    {/* <Link to="/">Home</Link>
     <Link style={{marginLeft:20}} to="/Objective">Objective</Link>
     <Link style={{marginLeft:20}} to="/PersonalInfo">PersonalInfo</Link>
     <Link style={{marginLeft:20}} to="/Education">Education</Link>
     <Link style={{marginLeft:20}} to="/Experience">Experience</Link>
     <Link style={{marginLeft:20}} to="/Skills">Skills</Link>
     <Link style={{marginLeft:20}} to="/Registration">Registration</Link>
-     <Link style={{marginLeft:20}} to="/Resumetemplate">Resumetemplate</Link>
+     <Link style={{marginLeft:20}} to="/Resumetemplate">Resumetemplate</Link> */}
 
 
    </nav>
@@ -47,4 +48,6 @@ export default function App() {
    
  )
 }
+
+
 
