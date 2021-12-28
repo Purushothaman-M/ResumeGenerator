@@ -210,7 +210,7 @@ export default function Education() {
 
           <div className="col-md-2">
             <label>city</label><br/>
-            <input className="newinput" type="text" name="city" placeholder="e.g. Chennai"/>
+            <input className="newinput" type="text" name="city" placeholder="e.g. Chennai" value={formik.values.city} onChange={formik.handleChange} />
           </div>
 
             </div>
@@ -271,12 +271,12 @@ export default function Education() {
 
           <div className="col-md-2">
             <label >Graduation date</label>
-            <Select className="menu" placeholder="Month" isDisabled={select} options={options1}></Select>
+            <Select  placeholder="Month" isDisabled={select} options={options1} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationmonth`,value.value)}} value={defaultvalue(formik.values.graduation.graduationmonth)} ></Select>
           </div>
 
           <div className="col-md-2">
             
-            <Select className="year" placeholder="year" isDisabled={select} options={options2} ></Select>
+            <Select className="year" placeholder="year" isDisabled={select} options={options2} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationyear`,value.value)}} value={defaultvalue(formik.values.graduation.graduationyear)} ></Select>
           </div>
           <div className="check">
             <input type="checkbox" checked={select} onChange={()=>{setselect(!select)}}/>
