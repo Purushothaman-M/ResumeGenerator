@@ -94,7 +94,7 @@ const options1=[
   { value:"1961",label:"1961" },
 ]
 
-const [selected,setSelected]=React.useState(false)
+// const [selected,setSelected]=React.useState(false)
 const onSubmit=(values)=>{
   
   setexperience(values)
@@ -113,8 +113,9 @@ const formik=useFormik({
     startyear:"",
     endmonth:"",
     endyear:""}],
-    data:""},
-
+    data:"",
+  presentlywork:[false]},
+    
     onSubmit
 })
 
@@ -158,7 +159,7 @@ const Resume=()=>{
   for(let i=index;i<length;i++)
   {
     formik.values.resume.push(additionaldata)
-   
+   formik.values.presentlywork.push(false)
 
   }
  setempty(index)
@@ -184,9 +185,20 @@ const Remove=()=>{
   
 // }
 
+const checkbox=()=>{
+  let length= formik.values.resume.length
+   let index=length-1
+
+   for(let i=index;i<length;i++)
+   {
+    formik.setFieldValue(`presentlywork[${i}]`,!formik.values.presentlywork[i])
+    formik.setFieldValue(`resume[${i}].endmonth`,"")
+    formik.setFieldValue(`resume[${i}].endyear`,"")
+   }
+}
 
 
- 
+ console.log("presentlywork",formik.values.presentlywork)
 console.log("formik.values",formik.values) 
 
 	    return (
@@ -264,19 +276,22 @@ console.log("formik.values",formik.values)
        <div className="col-md-2">
        <label>End date</label><br/>
       <Select  placeholder="Month" options={options} 
-      onChange={(value)=>{formik.setFieldValue(`resume[${i}].endmonth`,value.value)}} value={defaultvalue(formik.values.resume.endmonth)}></Select>
+      onChange={(value)=>{formik.setFieldValue(`resume[${i}].endmonth`,value.value)}} value={defaultvalue(formik.values.resume.endmonth)}
+      isDisabled={formik.values.presentlywork[i]}></Select>
        </div>
 
        <div className="col-md-2">
       <Select  className="select-year"  placeholder="Year" options={options1} 
-      onChange={(value)=>{formik.setFieldValue(`resume[${i}].endyear`,value.value)}} value={defaultvalue(formik.values.resume.endyear)}></Select>
+      onChange={(value)=>{formik.setFieldValue(`resume[${i}].endyear`,value.value)}} value={defaultvalue(formik.values.resume.endyear)}
+      isDisabled={formik.values.presentlywork[i]}></Select>
        </div>
         </div>
 
-
+       
         <div className="row"> 
           <div className="col-md-4 offset-6">
-          <input className="Checkbox" type="checkbox" checked={selected} onChange={()=>setSelected(!selected)} ></input>
+          <input className="Checkbox" type="checkbox" checked={formik.values.presentlywork[i]} 
+          onClick={checkbox}></input>
           <label>I presently work here</label>
             </div>
              </div>
