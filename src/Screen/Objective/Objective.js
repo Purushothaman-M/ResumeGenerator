@@ -2,8 +2,10 @@ import { useFormik } from 'formik'
 import {Button} from "react-bootstrap"
 import React, { useState } from 'react'
 import Editor from '../../Components/Quill'
+import { useHistory } from 'react-router'
 
 export default function Objective(props) {
+  let history=useHistory()
 
   const onSubmit=(values)=>{
     console.log("onsubmit",values)
@@ -35,9 +37,12 @@ function handleChange(content){
  
   </div>
 </div>
+      
+      <div className="row">
+        <div className="colimd-6">
+      <Button className='Back' onClick={history.goBack} >{"Back"}</Button>
+      <Button className='Submit' type="submit" >{"SUBMIT"}</Button></div></div>
       </div> 
-
-      <Button className='Submit' type="submit" >{"SUBMIT"}</Button>
       </form>  
     </div>
   

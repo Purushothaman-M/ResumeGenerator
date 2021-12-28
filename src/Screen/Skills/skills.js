@@ -24,7 +24,7 @@ const[data,setdata]=useState()
 
     const onSubmit=(values)=>{
       setdata([values])
-      history.push("/Education")
+      history.push("/Objective")
 
         }
       
@@ -106,8 +106,7 @@ console.log("formik.values.data",formik.values.data)
          <div className="col-md-4 ">
         <Button className="REMOVE" onClick={Remove} >- REMOVE</Button>
           </div> </div>
-         </form>
-         </div>
+        
          <div
             style={{
               marginTop: 50,
@@ -131,6 +130,8 @@ console.log("formik.values.data",formik.values.data)
               Submit
             </Button>
           </div>
+          </form>
+         </div>
           </div>
 
          
