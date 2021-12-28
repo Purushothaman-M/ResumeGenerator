@@ -269,13 +269,14 @@
 
 
 .Objective{
-
+    background-image: url("https://images.pexels.com/photos/1323550/pexels-photo-1323550.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     display: flex;
     .quill{
        height: 30em; 
        width: 80em;
     }
     .Submit{
+        margin-top: 30px;
         background-color: #F07201;
         height: 3em;
         width: 7em;
@@ -284,6 +285,7 @@
        
     }
     .Back{
+        margin-top: 30px;
         background-color: darkgrey;
         height: 3em;
         width: 7em;
@@ -292,6 +294,7 @@
 }
 
 .personalinfo{
+    background-image: url("https://images.pexels.com/photos/248159/pexels-photo-248159.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     *{
         margin: 0px;
         padding: 0px;
