@@ -1,5 +1,6 @@
 .Experience{
     display: flex;
+    background-image: url("https://images.pexels.com/photos/2559941/pexels-photo-2559941.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
     .body {
       font-family: sans-serif;
          }
@@ -52,6 +53,7 @@
                 }
             .text-editor{
                 margin-top: 20px;
+                width:75em;
             }
             .career-field{    
                 height: 27.72rem;
@@ -366,6 +368,8 @@
 }
 
 .skill{
+    background-image: url("https://images.pexels.com/photos/440731/pexels-photo-440731.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+    height: 50em;
     .Submit{
         background-color: #F07201;
         height: 3em;

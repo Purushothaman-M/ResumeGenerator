@@ -65,8 +65,8 @@ const[data,setdata]=useState()
 
 console.log("formik.values.data",formik.values.data)
     return (
-        <div className="Experience  skill container">
-      <div className="top">
+        <div className="Experience  skill ">
+      <div className="top container">
       <div className="row">
       <div className="col">
       <h5>Skills</h5>

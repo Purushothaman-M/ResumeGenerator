@@ -185,26 +185,26 @@ const Remove=()=>{
   
 // }
 
-const checkbox=()=>{
-  let length= formik.values.resume.length
-   let index=length-1
+// const checkbox=()=>{
+//   let length= formik.values.resume.length
+//    let index=length-1
 
-   for(let i=index;i<length;i++)
-   {
-    formik.setFieldValue(`presentlywork[${i}]`,!formik.values.presentlywork[i])
-    formik.setFieldValue(`resume[${i}].endmonth`,"")
-    formik.setFieldValue(`resume[${i}].endyear`,"")
-   }
-}
+//    for(let i=index;i<length;i++)
+//    {
+//     formik.setFieldValue(`presentlywork[${i}]`,!formik.values.presentlywork[i])
+//     formik.setFieldValue(`resume[${i}].endmonth`,"")
+//     formik.setFieldValue(`resume[${i}].endyear`,"")
+//    }
+// }
 
 
  console.log("presentlywork",formik.values.presentlywork)
 console.log("formik.values",formik.values) 
 
 	    return (
-	      <div className="Experience container">
+	      <div className="Experience ">
           
-        <div className="top">
+        <div className="top container">
 
 
         <div className="row">
@@ -291,8 +291,10 @@ console.log("formik.values",formik.values)
         <div className="row"> 
           <div className="col-md-4 offset-6">
           <input className="Checkbox" type="checkbox" checked={formik.values.presentlywork[i]} 
-          onClick={checkbox}></input>
-          <label>I presently work here</label>
+          onClick={()=>{formik.setFieldValue(`presentlywork[${i}]`,!formik.values.presentlywork[i])
+          formik.setFieldValue(`resume[${i}].endmonth`,"")
+          formik.setFieldValue(`resume[${i}].endyear`,"")}}></input>
+          <label>I presently work here</label>  
             </div>
              </div>
 
@@ -317,26 +319,20 @@ console.log("formik.values",formik.values)
 
             <div className="row text-editor">
             <label>Job description</label>
-          <div className="col-md-6">
           <ReactQuill  theme="snow"   onChange={handleChange}
 			     value={editor.content} onBlur={(value)=>formik.setFieldValue("data",  "" + editor.content)}/>
-            </div>
+          
 
-            <div className="col-md-6">
-              <div className="career-field">
-              <p>Choose your career field and sub-field to find relevant pre-written examples.</p>
-              </div>
             
-            </div>
+            <div className="col">
             <div className="Button">
             <Button className="Back" 
             // onClick={history.push("/PersonalInfo")}
             >BACK</Button>
             <Button className="Submit" type="submit">SUBMIT</Button>
-           </div>
+           </div></div>
             </div>
  
-
            
           
            
