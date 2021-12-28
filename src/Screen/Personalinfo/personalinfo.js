@@ -20,7 +20,6 @@ export default function PersonalInfo(props) {
     //  alert(JSON.stringify(values, null, 2));
      setData([values])
      history.push("/Experience")
-     resetForm()
   } 
   ////////////////////////////////////
   const validate = values =>{

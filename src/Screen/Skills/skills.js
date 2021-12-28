@@ -74,7 +74,7 @@ console.log("formik.values.data",formik.values.data)
       </div>
       </div>
      <div  className="middle">
-     <form onSubmit={formik.handleSubmit}> 
+      <form onSubmit={formik.handleSubmit}> 
            { formik.values.data.map((item,i)=>{
   return (
  <>
