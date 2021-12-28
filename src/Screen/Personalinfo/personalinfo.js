@@ -4,6 +4,8 @@ import { Button } from 'react-bootstrap'
 import Select from 'react-select'
 import countryList from 'react-select-country-list'
 import "../../pumacss.css"
+import { useHistory } from "react-router-dom";
+
 
 
 
@@ -11,12 +13,14 @@ export default function PersonalInfo(props) {
 
   const [data,setData]=useState()
   const options = useMemo(() => countryList().getData(), [])
+  let history=useHistory()
 
 
   const onSubmit =  (values,{resetForm}) => {
-     alert(JSON.stringify(values, null, 2));
+    //  alert(JSON.stringify(values, null, 2));
      setData([values])
-     resetForm()
+     history.push("/Experience")
+     
   } 
   ////////////////////////////////////
   const validate = values =>{
@@ -75,7 +79,7 @@ export default function PersonalInfo(props) {
 
   console.log("data--->",data)
   return (
-    <div className='contain'>
+    <div className=' personalinfo contain'>
       <form onSubmit={formik.handleSubmit}>
       <div className='container'>
 <h5>PERSONAL INFO</h5>
@@ -129,10 +133,21 @@ export default function PersonalInfo(props) {
    {formik.touched.phonenumber && formik.errors.phonenumber &&(<div style={{color:"#cc25b0"}}>{formik.errors.phonenumber}</div>)}
    </div>
    </div>
-   <div  style={{marginTop:50,justifyContent:"space-between",display:"flex"}}>
-   <Button variant="primary" type="button">Back</Button>
-         <Button variant="primary" type="submit"> submit</Button>
-        </div>
+   <div
+            style={{
+              marginTop: 50,
+              justifyContent: "space-between",
+              display: "flex",
+            }}
+          >
+            <Button
+              className="Submit "
+              style={{ marginTop: 20, fontSize: 20, marginLeft: 10 }}
+              type="submit"
+            >
+              Submit
+            </Button>
+          </div>
 </div>
       </div>   
      
