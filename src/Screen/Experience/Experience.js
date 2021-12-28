@@ -329,7 +329,9 @@ console.log("formik.values",formik.values)
             
             </div>
             <div className="Button">
-            <Button className="Back" onClick={history.push("/PersonalInfo")}>BACK</Button>
+            <Button className="Back" 
+            // onClick={history.push("/PersonalInfo")}
+            >BACK</Button>
             <Button className="Submit" type="submit">SUBMIT</Button>
            </div>
             </div>

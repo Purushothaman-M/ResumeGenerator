@@ -12,7 +12,8 @@ import { useHistory } from "react-router-dom";
 export default function PersonalInfo(props) {
 
   const [data,setData]=useState()
-  const options = useMemo(() => countryList().getData(), [])
+  const options = useMemo(() => countryList().getData(), []) 
+  
   let history=useHistory()
 
 
@@ -20,10 +21,7 @@ export default function PersonalInfo(props) {
     //  alert(JSON.stringify(values, null, 2));
      setData([values])
      history.push("/Experience")
-<<<<<<< HEAD
-=======
      
->>>>>>> 6944f30e032872960edd0486eaef572321135611
   } 
   ////////////////////////////////////
   const validate = values =>{
