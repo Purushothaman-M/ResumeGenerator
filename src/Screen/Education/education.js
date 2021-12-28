@@ -304,7 +304,7 @@ export default function Education() {
 
             <div className="row justify-content-between">
               <div className="col-md-4 ">
-                <Button className="back"  onClick={() => history.push("/Education")}>BACK</Button>
+                <Button className="back"  onClick={() => history.push("/Experience")}>BACK</Button>
                 </div>
                 <div className="col-md-4">
                 <Button className="save" type="submit">Submit</Button>

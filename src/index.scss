@@ -275,6 +275,79 @@
 }
 
 .personalinfo{
+    *{
+        margin: 0px;
+        padding: 0px;
+      }
+      .contain{
+        display:flex;
+        height: 100vh;
+        justify-content: center;
+        
+      }
+      
+      h5{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      p{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      }
+      
+      .subcontain{
+        margin: 40px 0px 0px 0px;
+        /* background: #00ffff; */
+        display:flex;
+        height: 80vh;
+        flex-direction:column;
+      }
+      
+      .middle{
+        flex-Direction:"row";
+        display: flex;
+      }
+      
+      .city{
+        flex-Direction:"row";
+        display: flex;
+        margin-top: 20px;
+      }
+      
+      .i1{
+        width: 35vw;
+        height: 40px;
+        margin: 0px 50px 0px 0px;
+        border-radius: 5px;
+        border: 1px solid #00ffff ;
+        outline-color: #719ECE;
+        padding-left: 5px;
+        letter-spacing: 1px;
+      }
+      
+      .i2{
+        width: 73.8vw;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #00ffff ;
+        outline-color: #719ECE;
+        padding-left: 5px;
+      }
+      
+      .i3{
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #00ffff ;
+        outline-color: #719ECE;
+        padding-left: 5px;
+      }
+      
+      .countryi4{
+        width: 17vw;
+        height: 40px;
+        border-radius: 5px;
+        border: 1px solid #00ffff ;
+        outline-color: #719ECE;
+        /* padding-left: 5px; */
+      }
     .Submit{
         background-color: #F07201;
         height: 3em;
@@ -289,6 +362,7 @@
         width: 7em;
         border-color: #F9F9F9;
     }
+
 }
 
 .skill{
