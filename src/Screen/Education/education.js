@@ -11,6 +11,17 @@ export default function Education({location:{state}}) {
   
   const [select, setselect]=useState(false)
   let temp=JSON.parse(JSON.stringify(state))
+  console.log("temp",temp)
+
+
+  const onSubmit=(values) =>{
+    // alert(JSON.stringify(values));   
+    let val=values
+    let ar={...val,...temp}
+          console.log("ar",ar)
+          history.push({pathname:"/skills",state:ar})
+  } 
+
 
   const formik = useFormik ({
     initialValues:{
@@ -26,11 +37,7 @@ export default function Education({location:{state}}) {
       present:[false]
       
     },
-    onSubmit: (values) =>{
-      // alert(JSON.stringify(values));
-      
-      history.push("/skills")
-    },
+    onSubmit,
     validate: values =>{
       let errors={};
       if(!values.schoolname)
@@ -59,10 +66,7 @@ export default function Education({location:{state}}) {
       }
 
       return errors;
-      let val=values
-let ar={...val,...temp}
-      console.log("ar",ar)
-      history.push({pathname:"/skills",state:ar})
+     
     }
   })
 
@@ -358,7 +362,9 @@ let ar={...val,...temp}
 
             <div className="row justify-content-between">
               <div className="col-md-4 ">
-                <Button className="back"  onClick={() => history.push("/Experience")}>BACK</Button>
+                <Button className="back"  
+                // onClick={() => history.push("/Experience")}
+                >BACK</Button>
                 </div>
                 <div className="col-md-5">
                 <Button className="save" type="submit">Submit</Button>
