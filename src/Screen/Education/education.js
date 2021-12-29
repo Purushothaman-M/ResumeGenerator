@@ -5,11 +5,12 @@ import { Button } from "react-bootstrap";
 import { useHistory } from 'react-router';
 // import "../../gowthamcss.css"
 
-export default function Education() {
+export default function Education({location:{state}}) {
 
   let history=useHistory()
   
   const [select, setselect]=useState(false)
+  let temp=JSON.parse(JSON.stringify(state))
 
   const formik = useFormik ({
     initialValues:{
@@ -27,6 +28,7 @@ export default function Education() {
     },
     onSubmit: (values) =>{
       // alert(JSON.stringify(values));
+<<<<<<< HEAD
       
       history.push("/skills")
     },
@@ -58,6 +60,12 @@ export default function Education() {
       }
 
       return errors;
+=======
+      let val=values
+let ar={...val,...temp}
+      console.log("ar",ar)
+      history.push({pathname:"/skills",state:ar})
+>>>>>>> 7751efc5d7ad2133203ff45b9f0ac8c604d360c3
     }
   })
 
