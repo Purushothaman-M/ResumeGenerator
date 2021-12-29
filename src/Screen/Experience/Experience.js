@@ -104,7 +104,7 @@ const onSubmit=(values)=>{
   setexperience(values)
 let val=values
 let arr={...val,...temp}
-console.log("arr",arr)
+console.log("arrrrrr",arr)
 
   history.push({pathname:"/education",state:arr})
 
