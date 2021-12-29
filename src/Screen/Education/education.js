@@ -28,7 +28,6 @@ export default function Education({location:{state}}) {
     },
     onSubmit: (values) =>{
       // alert(JSON.stringify(values));
-<<<<<<< HEAD
       
       history.push("/skills")
     },
@@ -60,12 +59,10 @@ export default function Education({location:{state}}) {
       }
 
       return errors;
-=======
       let val=values
 let ar={...val,...temp}
       console.log("ar",ar)
       history.push({pathname:"/skills",state:ar})
->>>>>>> 7751efc5d7ad2133203ff45b9f0ac8c604d360c3
     }
   })
 
