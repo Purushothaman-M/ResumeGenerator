@@ -11,7 +11,7 @@ export default function Education({location:{state}}) {
   
   const [select, setselect]=useState(false)
   let temp=JSON.parse(JSON.stringify(state))
-
+// ////////////////////////////////
   const formik = useFormik ({
     initialValues:{
       schoolname:"",
