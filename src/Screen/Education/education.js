@@ -21,13 +21,43 @@ export default function Education() {
       graduation:[{
       selectdegree:"",
       graduationmonth:"",
-      graduationyear:""}]
+      graduationyear:""}],
+      present:[false]
       
     },
     onSubmit: (values) =>{
       // alert(JSON.stringify(values));
       
       history.push("/skills")
+    },
+    validate: values =>{
+      let errors={};
+      if(!values.schoolname)
+      {
+        errors.schoolname="Required"
+      }
+      if(!values.state)
+      {
+        errors.state="Required"
+      }
+      if(!values.city)
+      {
+        errors.city="Required"
+      }
+      if(!values.sslc)
+      {
+        errors.sslc="Required"
+      }
+      if(!values.hsc)
+      {
+        errors.hsc="Required"
+      }
+      if(!values.graduation)
+      {
+        errors.graduation="Required"
+      }
+
+      return errors;
     }
   })
 
@@ -166,18 +196,20 @@ export default function Education() {
     for(let i=index;i<length;i++)
     {
       formik.values.graduation.push(adding)
+      formik.values.present.push(false)
       
     }
-    setdata(length)
+    setdata(index)
 
   }
 
   const onRemoveDegree=()=>{
+    let length=formik.values.graduation.length
     if(formik.values.graduation.length>1)
     {
     formik.values.graduation.pop()
     }
-    setdata("hello")
+    setdata(length)
   }
 
  
@@ -200,17 +232,29 @@ export default function Education() {
 
           <div className="col-md-4">
             <label>School Name</label><br/>
-            <input className="input" type="text" name="schoolname" placeholder="Vivekanatha matric hr.sec school" value={formik.values.schoolname} onChange={formik.handleChange}/>
+            <input className="input" type="text" name="schoolname" placeholder="Vivekanatha matric hr.sec school" value={formik.values.schoolname} onChange={formik.handleChange} onBlur={formik.handleBlur}/>
+            {
+              formik.touched.schoolname && formik.errors.schoolname?
+              <div style={{color:"red"}}>{formik.errors.schoolname}</div> : null
+            }
           </div>
 
           <div className="col-md-2">
             <label>State</label>
-            <Select placeholder=" TN" options={options} onChange={(value)=>{formik.setFieldValue("state",value.value)}} value={defaultvalue(formik.values.state)} ></Select>
+            <Select placeholder=" TN" options={options} onChange={(value)=>{formik.setFieldValue("state",value.value)}} value={defaultvalue(formik.values.state)} onBlur={formik.handleBlur} ></Select>
+            {
+              formik.touched.state && formik.errors.state?
+              <div style={{color:"red"}}>{formik.errors.state}</div> : null
+            }
           </div>
 
           <div className="col-md-2">
             <label>city</label><br/>
-            <input className="newinput" type="text" name="city" placeholder=" Chennai" value={formik.values.city} onChange={formik.handleChange} />
+            <input className="newinput" type="text" name="city" placeholder=" Chennai" value={formik.values.city} onChange={formik.handleChange} onBlur={formik.handleBlur} />
+            {
+              formik.touched.city && formik.errors.city?
+              <div style={{color:"red"}}>{formik.errors.city}</div> : null
+            }
           </div>
 
             </div>
@@ -271,16 +315,19 @@ export default function Education() {
 
           <div className="col-md-2">
             <label >Graduation date</label>
-            <Select  placeholder="Month" isDisabled={select} options={options1} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationmonth`,value.value)}} value={defaultvalue(formik.values.graduation.graduationmonth)} ></Select>
+            <Select  placeholder="Month" isDisabled={formik.values.present[i]} options={options1} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationmonth`,value.value)}} value={defaultvalue(formik.values.graduation.graduationmonth)} ></Select>
           </div>
 
           <div className="col-md-2">
             
-            <Select className="year" placeholder="year" isDisabled={select} options={options2} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationyear`,value.value)}} value={defaultvalue(formik.values.graduation.graduationyear)} ></Select>
+            <Select className="year" placeholder="year" isDisabled={formik.values.present[i]} options={options2} onChange={(value)=>{formik.setFieldValue(`graduation[${i}].graduationyear`,value.value)}} value={defaultvalue(formik.values.graduation.graduationyear)} ></Select>
           </div>
           <div className="check">
           <div className="col-md-4 offset-4">
-            <input type="checkbox" checked={select} onChange={()=>{setselect(!select)}}/>
+            <input type="checkbox" checked={formik.values.present[i]} 
+            onChange={()=>{formik.setFieldValue(`present[${i}]`,!formik.values.present[i])
+            formik.setFieldValue(`graduation[${i}].graduationmonth`,"")
+            formik.setFieldValue(`graduation[${i}].graduationyear`,"")}}/>
             <label>I Presently attend here</label>
           </div>
           </div>

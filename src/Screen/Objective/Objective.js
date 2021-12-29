@@ -4,21 +4,24 @@ import React, { useState } from 'react'
 import Editor from '../../Components/Quill'
 import { useHistory } from 'react-router'
 
-export default function Objective(props) {
+export default function Objective({location:{state}}) {
   let history=useHistory()
+  // let temp=JSON.parse(JSON.stringify(state))
 
   const onSubmit=(values)=>{
-    console.log("onsubmit",values)
+    let val=values
+      // let objectiveval={...val,...temp}
+      // console.log("skilldata",objectiveval)
   }
 
 const formik=useFormik({
   initialValues:{
-    data:""
+    objectivedata:""
   },
   onSubmit
 })
 const [editor, setEditor] = useState({
-  content: formik.values.data || ""
+  content: formik.values.objectivedata || ""
 })
 function handleChange(content){
   setEditor({content})
@@ -31,7 +34,7 @@ function handleChange(content){
 <div className='subcontain'>
   <div>
     <Editor className="quill"  onChange={handleChange}
-			value={editor.content} onBlur={(value)=>formik.setFieldValue("data",  "" + editor.content)}/>
+			value={editor.content} onBlur={(value)=>formik.setFieldValue("objectivedata",  "" + editor.content)}/>
   </div>
   <div>
  
